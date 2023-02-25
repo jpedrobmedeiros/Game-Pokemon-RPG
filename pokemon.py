@@ -16,7 +16,14 @@ class Pokemon:
     def atacar(self, pokemon):
         print(f"{self} atacou {pokemon}!")
 
-meuPokemon = Pokemon("Água", "Squirtle", "Taturu", "50")
+class PokemonAquatico(Pokemon):
+    def atacar(self, pokemon):
+        print(f"{self} lançou um jato d'água em {pokemon}")
+
+    def molhar(self):
+        print(f"{self} molhou tudo!")
+
+meuPokemon = PokemonAquatico("Água", "Squirtle", "Taturu", "50")
 pokemonAmigo = Pokemon("Planta", "Bulbasaur")
 
 print(meuPokemon)
@@ -24,3 +31,5 @@ print(pokemonAmigo)
 
 meuPokemon.atacar(pokemonAmigo)
 pokemonAmigo.atacar(meuPokemon)
+
+meuPokemon.molhar()
