@@ -5,8 +5,11 @@ class Pokemon:
         self.tipo = tipo
         self.especie = especie
 
+    def __str__(self):
+        return f"{self.especie} ({self.tipo})"
+
 meuPokemon = Pokemon("Água", "Squirtle")
 pokemonAmigo = Pokemon("Planta", "Bulbasaur")
 
-print(meuPokemon.tipo, meuPokemon.especie)
-print(pokemonAmigo.tipo, pokemonAmigo.especie)
+print(meuPokemon)
+print(pokemonAmigo)
