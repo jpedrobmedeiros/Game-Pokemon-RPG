@@ -8,8 +8,11 @@ class Pokemon:
     def __str__(self):
         return f"{self.especie} ({self.tipo})"
 
+    def atacar(self, pokemon):
+        print(f"{self} atacou {pokemon}!")
+
 meuPokemon = Pokemon("Água", "Squirtle")
 pokemonAmigo = Pokemon("Planta", "Bulbasaur")
 
-print(meuPokemon)
-print(pokemonAmigo)
+meuPokemon.atacar(pokemonAmigo)
+pokemonAmigo.atacar(meuPokemon)
