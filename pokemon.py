@@ -32,12 +32,3 @@ class PokemonPlanta(Pokemon):
 
     def atacar(self, pokemon):
         print(f"{self} lançou folhas cortantes em {pokemon}!")
-
-meuPokemon = PokemonAgua("Squirtle")
-pokemonAmigo = PokemonPlanta("Bulbasaur")
-
-print(meuPokemon, meuPokemon.tipo)
-print(pokemonAmigo, pokemonAmigo.tipo)
-
-meuPokemon.atacar(pokemonAmigo)
-pokemonAmigo.atacar(meuPokemon)
