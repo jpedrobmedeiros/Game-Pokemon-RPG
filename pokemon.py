@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 
+import random
+
 class Pokemon:
-    def __init__(self, especie, nome=None, level=1):
+    def __init__(self, especie, nome=None, level=random.randint(1, 100)):
         self.especie = especie
         if nome:
             self.nome = nome

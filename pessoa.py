@@ -8,6 +8,18 @@ NOMES = [
     "João", "Ingrid", "Maria", "Paulo", "Joaquina", "Gerson", "Gary", "Gerônimo", "Claudia", "Jeremias", "Pedro", "Marcos", "Matheus", "Camila", "Yuri"
 ]
 
+POKEMONS = [
+    PokemonAgua("Lapras"),
+    PokemonAgua("Squirtle"),
+    PokemonAgua("Magikarp"),
+    PokemonFogo("Ponyta"),
+    PokemonFogo("Charmander"),
+    PokemonFogo("Growlithe"),
+    PokemonPlanta("Bulbasaur"),
+    PokemonPlanta("Oddish"),
+    PokemonPlanta("Chikorita")
+]
+
 class Pessoa:
     def __init__(self, nome=None, pokemons=[]):
         if nome:
@@ -36,11 +48,13 @@ class Jogador(Pessoa):
 
 class Inimigo(Pessoa):
     tipo = "Inimigo"
-
-jogador = Jogador("João Pedro")
-
-print(f"Jogador: {jogador}")
+    
+    def __init__(self, nome=None, pokemons=[]):
+        if not pokemons:
+            for iteracao in range(random.randint(1, 6)):
+                pokemons.append(random.choice(POKEMONS))
+        
+        super().__init__(nome, pokemons)
 
 inimigo = Inimigo()
-
-print(f"Inimigo: {inimigo}")
+inimigo.mostrarPokemons()
