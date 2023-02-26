@@ -1,13 +1,19 @@
 #!/usr/bin/python3
 
+import random
+
 from pokemon import *
 
+NOMES = [
+    "João", "Ingrid", "Maria", "Paulo", "Joaquina", "Gerson", "Gary", "Gerônimo", "Claudia", "Jeremias", "Pedro", "Marcos", "Matheus", "Camila", "Yuri"
+]
+
 class Pessoa:
-    def __init__(self, nome, pokemons=[]):
+    def __init__(self, nome=None, pokemons=[]):
         if nome:
             self.nome = nome
         else:
-            self.nome = "Anônimo"
+            self.nome = random.choice(NOMES)
 
         self.pokemons = pokemons
     
@@ -33,10 +39,8 @@ class Inimigo(Pessoa):
 
 jogador = Jogador("João Pedro")
 
-jogador.mostrarPokemons()
+print(f"Jogador: {jogador}")
 
-pokemonSelvagem = PokemonAgua("Squirtle")
+inimigo = Inimigo()
 
-jogador.capturarPokemon(pokemonSelvagem)
-
-jogador.mostrarPokemons()
+print(f"Inimigo: {inimigo}")
