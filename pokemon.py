@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 
 class Pokemon:
-    def __init__(self, tipo, especie, nome=None, level=1):
-        self.tipo = tipo
+    def __init__(self, especie, nome=None, level=1):
         self.especie = especie
         if nome:
             self.nome = nome
@@ -16,20 +15,29 @@ class Pokemon:
     def atacar(self, pokemon):
         print(f"{self} atacou {pokemon}!")
 
-class PokemonAquatico(Pokemon):
+class PokemonAgua(Pokemon):
+    tipo = "Água"
+
     def atacar(self, pokemon):
-        print(f"{self} lançou um jato d'água em {pokemon}")
+        print(f"{self} lançou um jato d'água em {pokemon}!")
 
-    def molhar(self):
-        print(f"{self} molhou tudo!")
+class PokemonFogo(Pokemon):
+    tipo = "Fogo"
 
-meuPokemon = PokemonAquatico("Água", "Squirtle", "Taturu", "50")
-pokemonAmigo = Pokemon("Planta", "Bulbasaur")
+    def atacar(self, pokemon):
+        print(f"{self} lançou uma bola de fogo em {pokemon}!")
 
-print(meuPokemon)
-print(pokemonAmigo)
+class PokemonPlanta(Pokemon):
+    tipo = "Planta"
+
+    def atacar(self, pokemon):
+        print(f"{self} lançou folhas cortantes em {pokemon}!")
+
+meuPokemon = PokemonAgua("Squirtle")
+pokemonAmigo = PokemonPlanta("Bulbasaur")
+
+print(meuPokemon, meuPokemon.tipo)
+print(pokemonAmigo, pokemonAmigo.tipo)
 
 meuPokemon.atacar(pokemonAmigo)
 pokemonAmigo.atacar(meuPokemon)
-
-meuPokemon.molhar()
