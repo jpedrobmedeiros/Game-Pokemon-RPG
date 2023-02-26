@@ -15,19 +15,28 @@ class Pessoa:
         return self.nome
 
     def mostrarPokemons(self):
-        for pokemon in self.pokemons:
-            print(pokemon)
+        if self.pokemons:
+            print(f"Pokemons de {self}:")
+            for pokemon in self.pokemons:
+                print(pokemon)
+        else:
+            print(f"{self} não possui Pokemons!")
 
 class Jogador(Pessoa):
     tipo = "Jogador"
 
+    def capturarPokemon(self, pokemon):
+        self.pokemons.append(pokemon)
+
 class Inimigo(Pessoa):
     tipo = "Inimigo"
 
-pokemon1 = PokemonAgua("Squirtle")
-pokemon2 = PokemonPlanta("Bulbasaur")
+jogador = Jogador("João Pedro")
 
-eu = Jogador("João Pedro")
+jogador.mostrarPokemons()
 
-print(eu)
-eu.mostrarPokemons()
+pokemonSelvagem = PokemonAgua("Squirtle")
+
+jogador.capturarPokemon(pokemonSelvagem)
+
+jogador.mostrarPokemons()
